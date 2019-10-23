@@ -3,6 +3,8 @@ $.ajax({
     type: 'get',
     url: '/posts',
     success: function(res) {
+        // console.log(res.records.reverse())
+        // var records = res.records.reverse()
         var html = template('template', res);
         $("#postsBox").html(html)
         var page = template('pageT', res);
@@ -26,7 +28,9 @@ function changeTop(page) {
             page: page
         },
         success: function(res) {
-            console.log(res)
+            // console.log(res)
+            // var records = res.records.reverse()
+            // var html = template('template', records);
             var html = template('template', res);
             $("#postsBox").html(html)
             var page = template('pageT', res);
@@ -49,13 +53,15 @@ $.ajax({
 // 筛选
 $('#screen').on('submit', function() {
     var formData = $(this).serialize();
-    console.log(formData)
+    // console.log(formData)
     $.ajax({
         type: 'get',
         url: '/posts',
         data: formData,
         success: function(res) {
-            console.log(res)
+            // console.log(res)
+            // var records = res.records.reverse()
+            // var html = template('template', records);
             var html = template('template', res);
             $("#postsBox").html(html)
             var page = template('pageT', res);
@@ -63,4 +69,17 @@ $('#screen').on('submit', function() {
         }
     });
     return false
+})
+
+// 删除 delete
+$("#postsBox").on('click', '.delete', function() {
+    if (!confirm('您真的要进行删除操作吗')) return;
+    var id = $(this).attr('data-id')
+    $.ajax({
+        type: 'delete',
+        url: '/posts/' + id,
+        success: function() {
+            location.reload()
+        }
+    })
 })

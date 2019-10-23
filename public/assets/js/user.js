@@ -131,6 +131,7 @@ $('#btnDel').on('click', function() {
     var select = $('#addUsers').find('input').filter(':checked');
     var array = []
     $.each(select, function(index, value) {
+        f
         array.push($(value).parent().attr('data-id'))
     });
     var ary = array.join('-')

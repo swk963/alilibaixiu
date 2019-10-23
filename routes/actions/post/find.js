@@ -13,8 +13,8 @@ module.exports = async(req, res) => {
     // 查询条件
     let condition = {};
     // 分类条件
-    console.log(req.query.category)
-    console.log(req.query.state)
+    // console.log(req.query.category)
+    // console.log(req.query.state)
     if (req.query.category != undefined) {
         condition.category = req.query.category;
         console.log('ok')
@@ -23,8 +23,8 @@ module.exports = async(req, res) => {
     if (req.query.state != undefined) {
         condition.state = req.query.state;
     }
-    console.log(condition)
-        // 查询用户信息
+    // console.log(condition)
+    // 查询用户信息
     const posts = await pagination(Post).page(page).size(10).display(5).find(condition).populate('author', '-password').populate('category').select('-content -meta').exec();
     // 响应
     res.send(posts);

@@ -115,20 +115,21 @@
             <td class="text-center">{{$imports.formateDate(val.createAt)}}</td>
             <td class="text-center">{{val.state==1? '已发布' : '草稿' }}</td>
             <td class="text-center">
-                <a href="javascript:;" class="btn btn-default btn-xs" data-id="{{val._id}}">编辑</a>
-                <a href="javascript:;" class="btn btn-danger btn-xs" data-id="{{val._id}}">删除</a>
+                <a href="post-add.html?id={{val._id}}" class="btn btn-default btn-xs">编辑</a>
+                <a href="javascript:;" class="btn btn-danger btn-xs delete" data-id="{{val._id}}">删除</a>
             </td>
         </tr>
         {{/each}}
     </script>
+    <!-- 分页 -->
     <script type="text/html" id="pageT">
-
         <li><a href="javascript:;" onclick="changeTop({{page-1< 0? 1: page-1}})">上一页</a></li>
         {{each display}}
         <li><a href="javascript:;" onclick="changeTop({{$value}})">{{$value}}</a></li>
         {{/each}}
         <li><a href="javascript:;" onclick="changeTop({{page+1 > pages? pages: page+1 }})">下一页</a></li>
     </script>
+
     <script type="text/html" id="pageClass">
         <!-- <option>所有分类</option> -->
         {{each $data val}}

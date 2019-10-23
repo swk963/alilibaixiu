@@ -49,3 +49,43 @@ $('#addFrom').on('submit', function() {
 
     return false;
 })
+
+// 修改数据渲染
+if (location.search != '') getId()
+
+function getId() {
+    // return;
+    var id = location.search.substr(4);
+    $.ajax({
+        type: 'get',
+        url: '/posts/' + id,
+        success: function(res) {
+            // console.log(res)
+            $.ajax({
+                type: 'get',
+                url: '/categories',
+                success: function(param) {
+                    res.param = param
+                    var html = template('editList', res);
+                    $("#fromEditBiox").html(html);
+                    console.log(res)
+                }
+            })
+        }
+    })
+}
+
+// 修改的form名 fromEdit
+$("#fromEditBiox").on('submit', '#fromEdit', function() {
+    var formData = $(this).serialize()
+    var id = location.search.substr(4);
+    $.ajax({
+        type: 'put',
+        url: '/posts/' + id,
+        data: formData,
+        success: function() {
+            location.href = '/admin/posts.html'
+        }
+    })
+    return false;
+})
