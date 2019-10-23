@@ -19,7 +19,7 @@ $('#userForm').on('submit', function() {
 });
 // 上传图片  加载完就绑定了事件 , 后来成的标签没有这个事件
 $('#modifyBox').on('change', '#avatar', function() {
-    formData = new FormData();
+    var formData = new FormData();
     formData.append('avatar', this.files[0]);
     $.ajax({
         type: 'post',

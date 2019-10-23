@@ -54,3 +54,15 @@ $('#classBbox').on('submit', '#modifyCategory', function(res) {
     })
     return false
 })
+
+// 删除 delete
+$('#classListBox').on('click', '.delete', function() {
+    var id = $(this).attr('data-id');
+    $.ajax({
+        type: 'delete',
+        url: '/categories/' + id,
+        success: function(res) {
+            location.reload()
+        }
+    })
+})
