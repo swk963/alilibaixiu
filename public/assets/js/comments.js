@@ -2,6 +2,7 @@ $.ajax({
     type: 'get',
     url: '/comments',
     success: function(res) {
+        // console.log(res.records)
         var html = template('observer', res);
         $('#observerBox').html(html);
         var page = template('fyHtml', res);
@@ -40,6 +41,7 @@ $('#observerBox').on('click', '.PZBH', function(res) {
 
 // 删除
 $('#observerBox').on('click', '.delete', function(res) {
+    if (!confirm("请确认是否删除")) return;
     var id = $(this).attr('data-id');
     $.ajax({
         type: 'delete',

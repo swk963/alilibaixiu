@@ -15,3 +15,13 @@ exit.on('click', function() {
         })
     }
 })
+
+$.ajax({
+    type: 'get',
+    url: '/users/' + userId,
+    success: function(res) {
+        // console.log(res)
+        $('.avatar').attr('src', res.avatar)
+        $('.profile .name').html(res.nickName)
+    }
+})

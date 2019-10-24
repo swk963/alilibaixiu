@@ -39,11 +39,11 @@ const CommentSchema = new Schema({
 // 创建分类集合
 const Comment = mongoose.model('Comment', CommentSchema);
 
-Comment.create({
-    author: '5dad1f8632c38b3294af65b3',
-    content: '哈哈哈2',
-    post: '5db00ca098892013a4f002b6',
-});
+// Comment.create({
+//     author: '5dad1f8632c38b3294af65b3',
+//     content: '哈哈哈2',
+//     post: '5db00ca098892013a4f002b6',
+// });
 
 
 // 文章分类格式校验（路由级别）
