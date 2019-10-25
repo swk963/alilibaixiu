@@ -7,7 +7,6 @@ $.ajax({
     type: "get",
     url: "/posts/" + id,
     success: function(res) {
-        // console.log(res)
         var html = template('detailTxt', res);
         $("#detailBox").html(html)
     }
