@@ -35,11 +35,13 @@ $('#modifyBox').on('change', '#avatar', function() {
     })
 })
 
-// 获取数据
+// 获取数据 选然用户列表
 $.ajax({
     type: 'get',
     url: '/users',
     success: function(data) {
+        // console.log(data)
+        // console.log(data.avatar)
         var html = template('usersHtml', data);
         // console.log(html)
         $('#addUsers').html(html)

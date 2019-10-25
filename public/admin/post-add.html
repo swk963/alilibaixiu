@@ -1,3 +1,7 @@
+<script src="/login/status"></script>
+<script>
+    if (!isLogin) location.href = '/index.html'
+</script>
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -116,6 +120,7 @@
     <script src="../assets/vendors/jquery/jquery.js"></script>
     <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
     <script src="../assets/vendors/art-template/template-web.js"></script>
+    <script src="../assets/js/common.js"></script>
     <script type="text/html" id="classList">
         {{each $data val}}
         <option value="{{val._id}}">{{val.title}}</option>
@@ -147,7 +152,7 @@
                     <!-- show when image chose  图 thumbnail -->
                     <img class="help-block thumbnail classimg" style="display: {{thumbnail != '' ? 'block' : 'none'}}" src="{{thumbnail}}">
                     <input id="feature" class="form-control" type="file">
-                    <input type="hidden" name="thumbnail" id="featureImg">
+                    <input type="hidden" name="thumbnail" id="featureImg" value="{{thumbnail}}">
                 </div>
                 <div class="form-group">
                     <label for="category">所属分类</label>

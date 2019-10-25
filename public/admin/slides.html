@@ -1,3 +1,8 @@
+<script src="/login/status"></script>
+<script>
+    if (!isLogin) location.href = '/index.html'
+</script>
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -130,7 +135,8 @@
         {{/each}}
     </script>
     <script src="../assets/js/slides.js"></script>
-
+    <script src="../assets/js/user.js"></script>
+    <script src="../assets/js/common.js"></script>
     <script>
         NProgress.done()
     </script>

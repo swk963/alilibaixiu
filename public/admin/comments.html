@@ -1,3 +1,7 @@
+<script src="/login/status"></script>
+<script>
+    if (!isLogin) location.href = '/index.html'
+</script>
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -94,6 +98,7 @@
     <script src="../assets/vendors/jquery/jquery.js"></script>
     <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
     <script src="../assets/vendors/art-template/template-web.js"></script>
+
     <!-- 显示评论 -->
     <script type="text/html" id="observer">
         {{each records val}}
@@ -126,8 +131,8 @@
         {{/each}}
         <li><a href="javascript:;" onclick="fnFY({{page+1 > pages ? pages : page+1 }})">下一页</a></li>
     </script>
-
     <script src="../assets/js/comments.js"></script>
+    <script src="../assets/js/common.js"></script>
     <script>
         NProgress.done()
     </script>

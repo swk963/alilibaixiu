@@ -1,3 +1,4 @@
+// 退出登录按钮
 var exit = $('.exit');
 exit.on('click', function() {
     var isConfirm = confirm('您真的要退出吗?');
@@ -16,12 +17,13 @@ exit.on('click', function() {
     }
 })
 
+// 头像昵称显示
 $.ajax({
     type: 'get',
     url: '/users/' + userId,
     success: function(res) {
         // console.log(res)
-        $('.avatar').attr('src', res.avatar)
+        $('.profile .avatar').attr('src', res.avatar)
         $('.profile .name').html(res.nickName)
     }
 })

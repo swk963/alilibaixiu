@@ -1,5 +1,5 @@
 // 上传图片
-$('#logo').on('change', function() {
+$('#formBox').on('change', '#logo', function() {
     var formData = new FormData()
     formData.append('logos', this.files[0])
     $.ajax({
@@ -16,20 +16,21 @@ $('#logo').on('change', function() {
 })
 
 // 上传网站配置数据
-$("#settingsForm").on('submit', function() {
+$("#formBox").on('submit', "#settingsForm", function() {
     var formData = $(this).serialize();
     // console.log(formData)
-    $.ajax({
-        type: 'post',
-        url: '/settings',
-        data: formData,
-        success: function(res) {
-            location.reload();
-        },
-        error: function(res) {
-            console.log(res)
-        }
-    })
+    console.log(formData)
+        // $.ajax({
+        //     type: 'post',
+        //     url: '/settings',
+        //     data: formData,
+        //     success: function(res) {
+        //         location.reload();
+        //     },
+        //     error: function(res) {
+        //         console.log(res)
+        //     }
+        // })
     return false
 })
 

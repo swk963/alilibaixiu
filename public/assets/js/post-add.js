@@ -11,8 +11,8 @@ $.ajax({
     }
 })
 
-// 图片上传
-$('#feature').on('change', function() {
+// 图片上传 fromEditBiox
+$('#fromEditBiox').on('change', '#feature', function() {
     // var FormData = new FormData();不能用大写FormData 当变量
     var formData = new FormData()
     formData.append('feature', this.files[0]);
@@ -30,8 +30,8 @@ $('#feature').on('change', function() {
     })
 })
 
-// 表单上传  路由里获取作者id so登录状态才能发送文章
-$('#addFrom').on('submit', function() {
+// 表单上传  路由里获取作者id so登录状态才能发送文章 fromEditBiox
+$('#fromEditBiox').on('submit', '#addFrom', function() {
     var formData = $('#addFrom').serialize();
     // console.log(formData)
     $.ajax({
