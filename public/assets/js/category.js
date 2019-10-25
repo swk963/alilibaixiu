@@ -66,3 +66,49 @@ $('#classListBox').on('click', '.delete', function() {
         }
     })
 })
+
+// 全选功能 btnDel 批量删除按钮  btnAll 全选按钮  btnMore 动态创建的按钮
+// 1.全选
+var btnAll = $('#btnAll');
+var btnDel = $('#btnDel');
+btnAll.on('change', function() {
+    var status = $(this).prop('checked');
+    $('#classListBox').find('input').prop('checked', status);
+    if (status) return $("#btnDel").show()
+    $("#btnDel").hide()
+});
+
+// 2.单选 牵动全选状态
+$('#classListBox').on('change', '.btnMore', function() {
+    var input = $('#classListBox').find('input');
+    var checked = input.filter(':checked');
+    if (input.length == checked.length) {
+        $('#btnAll').prop('checked', true)
+    } else if (checked.length > 1) {
+        $('#btnDel').show();
+        $('#btnAll').prop('checked', false);
+    } else {
+        $('#btnDel').hide();
+    }
+})
+
+// 删除所有选中
+$('#btnDel').on('click', function() {
+    var select = $('#classListBox').find('input').filter(':checked');
+    var array = []
+    $.each(select, function(index, value) {
+        f
+        array.push($(value).parent().attr('data-id'))
+    });
+    var ary = array.join('-')
+    var con = confirm('您真的要删除吗')
+    if (!con) return
+        // console.log(ary)
+    $.ajax({
+        type: 'delete',
+        url: '/users/' + ary,
+        success: function() {
+            location.reload()
+        }
+    })
+})

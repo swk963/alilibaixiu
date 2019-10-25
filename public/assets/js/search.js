@@ -5,7 +5,7 @@ $.ajax({
     url: '/posts/search/' + key,
     success: function(res) {
         var html = template('searchTXT', { data: res });
-        console.log(res)
+        // console.log(res)
         $("#searchBox").html(html)
     }
 })

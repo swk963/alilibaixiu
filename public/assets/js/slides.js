@@ -40,7 +40,6 @@ $.ajax({
     success: function(res) {
         var html = template('slideshow', res);
         $('#slidesBox').html(html);
-        // console.log(res)
     }
 })
 

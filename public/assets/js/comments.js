@@ -5,8 +5,19 @@ $.ajax({
         // console.log(res.records)
         var html = template('observer', res);
         $('#observerBox').html(html);
-        var page = template('fyHtml', res);
-        $(".fyBox").html(page);
+        // var page = template('fyHtml', res);
+        // $(".fyBox").html(page);
+        $('#fyBox').twbsPagination({
+            totalPages: res.pages,
+            visiblePages: 3,
+            first: '首页',
+            prev: '上一页',
+            next: '下一页',
+            last: '尾页',
+            onPageClick: function(event, page) {
+                $('#page-content').text('Page ' + page);
+            }
+        });
     }
 })
 

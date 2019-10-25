@@ -120,7 +120,7 @@ $('#addUsers').on('change', '.btnMore', function() {
     var checked = input.filter(':checked');
     if (input.length == checked.length) {
         $('#btnAll').prop('checked', true)
-    } else if (checked.length > 1) {
+    } else if (checked.length > 0) {
         $('#btnDel').show();
         $('#btnAll').prop('checked', false);
     } else {

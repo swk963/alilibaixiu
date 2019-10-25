@@ -7,8 +7,19 @@ $.ajax({
         // var records = res.records.reverse()
         var html = template('template', res);
         $("#postsBox").html(html)
-        var page = template('pageT', res);
-        $('.pageBox').html(page)
+            // var page = template('pageT', res);
+            // $('.pageBox').html(page)
+        $('.pageBox').twbsPagination({
+            totalPages: res.pages,
+            visiblePages: 3,
+            first: '首页',
+            prev: '上一页',
+            next: '下一页',
+            last: '尾页',
+            onPageClick: function(event, page) {
+                $('#page-content').text('Page ' + page);
+            }
+        });
     }
 });
 

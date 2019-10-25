@@ -1,3 +1,4 @@
+// 文章评论数量
 var res = {};
 var sum = 0;
 $.ajax({

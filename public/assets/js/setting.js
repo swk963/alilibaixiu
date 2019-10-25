@@ -15,22 +15,29 @@ $('#formBox').on('change', '#logo', function() {
     })
 })
 
+// 按钮优化
+$("#formBox").on('click', '#comment_status', function() {
+    $("#aaa").val($(this).prop('checked'))
+})
+$("#formBox").on('click', '#comment_reviewed', function() {
+    $("#bbb").val($(this).prop('checked'))
+})
+
 // 上传网站配置数据
-$("#formBox").on('submit', "#settingsForm", function() {
+$("#settingsForm").on('submit', function() {
     var formData = $(this).serialize();
     // console.log(formData)
-    console.log(formData)
-        // $.ajax({
-        //     type: 'post',
-        //     url: '/settings',
-        //     data: formData,
-        //     success: function(res) {
-        //         location.reload();
-        //     },
-        //     error: function(res) {
-        //         console.log(res)
-        //     }
-        // })
+    $.ajax({
+        type: 'post',
+        url: '/settings',
+        data: formData,
+        success: function(res) {
+            location.reload();
+        },
+        error: function(res) {
+            console.log(res)
+        }
+    })
     return false
 })
 
@@ -45,7 +52,9 @@ $.ajax({
         $("#site_name").val(res.title)
         $("#site_description").val(res.description)
         $("#site_keywords").val(res.keywords)
-        $('input[name="comment"]').prop('checked', res.comment)
-        $('input[name="review"]').prop('checked', res.review)
+        $('#comment_status').prop('checked', res.comment)
+        $('#comment_reviewed').prop('checked', res.review)
+        $('#aaa').val(res.comment)
+        $('#bbb').val(res.review)
     }
 })

@@ -67,7 +67,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">图片</th>
-                                <th>文本</th>
+                                <th>文章</th>
                                 <th>链接</th>
                                 <th class="text-center" width="100">操作</th>
                             </tr>
@@ -127,7 +127,7 @@
         <tr>
             <td class="text-center"><img class="slide" src="{{val.image}}"></td>
             <td>{{val.title}}</td>
-            <td>{{val.link? val.link : '#'}}</td>
+            <td>{{val.link}}</td>
             <td class="text-center">
                 <a href="javascript:;" class="btn btn-danger btn-xs delete" data-id="{{val._id}}">删除</a>
             </td>

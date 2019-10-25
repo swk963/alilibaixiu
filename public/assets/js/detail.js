@@ -40,20 +40,11 @@ $.ajax({
     }
 })
 
+// 发布评论
 $('#comment').on('submit', 'form', function() {
-    // 获取用户输入的评论内容
     var content = $(this).find('textarea').val();
-    // 代表评论的状态
-    var state;
-
-    if (review) {
-        // 要经过人工审核
-        state = 0;
-    } else {
-        // 不需要经过人工审核
-        state = 1;
-    }
-    // 向服务器端发送请求 执行添加评论操作
+    var state = 1;
+    if (review) state = 0;
     $.ajax({
             type: 'post',
             url: '/comments',
